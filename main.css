@@ -29,6 +29,10 @@ input {
   border: 1px solid;
 }
 
+input.wide {
+  width: 180px;
+}
+
 #i3status {
   height: 22px;
   line-height: 20px;

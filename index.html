@@ -1,7 +1,6 @@
 <html>
   <head>
     <title>Online Colorscheme Configurator for i3, i3status, dmenu</title>
-    <script src="jscolor.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="main.css" type="text/css" media="all" />
   </head>
   <body>
@@ -39,13 +38,20 @@
     <div id="colors">
       <h2>i3 titles</h2>
       <table>
-        <tr><td>class</td><td>border</td><td>bground</td><td>text</td><td>indicator</td><td>child_border</td></tr>
+        <tr>
+          <td>item</td>
+          <td title="line above and below title">border</td>
+          <td title="background color" >bground</td>
+          <td title="color of text">text</td>
+          <td title="border color indicating where a new window will open">indicator</td>
+          <td title="line around window content">child_border</td>
+        </tr>
         <tr><td>focused</td><td><input id="title-focused-border" class="jscolor" value="4c7899" /></td><td><input class="jscolor" value="285577" /></td><td><input class="jscolor" value="ffffff" /></td><td><input class="jscolor" value="2e9ef4" /></td><td><input class="jscolor" value="285577" /></td></tr>
         <tr><td>inactive</td><td><input id="title-focused-border" class="jscolor" value="333333" /></td><td><input class="jscolor" value="5f676a" /></td><td><input class="jscolor" value="ffffff" /></td><td><input class="jscolor" value="484e50" /></td><td><input class="jscolor" value="5f676a" /></td></tr>
         <tr><td>unfocused</td><td><input id="title-focused-border" class="jscolor" value="333333" /></td><td><input class="jscolor" value="222222" /></td><td><input class="jscolor" value="888888" /></td><td><input class="jscolor" value="292d2e" /></td><td><input class="jscolor" value="222222" /></td></tr>
         <tr><td>urgent</td><td><input id="title-focused-border" class="jscolor" value="2f343a" /></td><td><input class="jscolor" value="900000" /></td><td><input class="jscolor" value="ffffff" /></td><td><input class="jscolor" value="900000" /></td><td><input class="jscolor" value="900000" /></td></tr>
         <tr><td>placeholder</td><td><input id="title-focused-border" class="jscolor" value="000000" /></td><td><input class="jscolor" value="0c0c0c" /></td><td><input class="jscolor" value="ffffff" /></td><td><input class="jscolor" value="000000" /></td><td><input class="jscolor" value="0c0c0c" /></td></tr>
-        <tr><td>window</td><td></td><td><input class="jscolor" value="FFFFFF" /></td></tr>
+        <tr><td title="space around constrained window (e.g. terminals)">window</td><td></td><td><input class="jscolor" value="FFFFFF" /></td></tr>
       </table>
 
       <h2>i3status</h2>
@@ -68,6 +74,7 @@
       </table>
 
       <h2>dmenu</h2>
+      prompt <input value="dmenu prompt >" class="wide" /> <br />
       <table>
         <tr><td>item</td><td>bground</td><td>text</td></tr>
         <tr><td>normal</td><td><input class="jscolor" value="222222" /></td><td><input class="jscolor" value="bbbbbb" /></td></tr>
@@ -143,5 +150,6 @@ general {
       </div>
     </div>
     <script src="main.js" type="text/javascript"></script>
+    <script src="jscolor.min.js" type="text/javascript"></script>
   </body>
 </html>
