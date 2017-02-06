@@ -49,10 +49,10 @@ input.wide {
   display: inline-block;
   border-width: 1px;
   border-style: solid;
-  width: 18px;
   height: 18px;
   text-align: center;
   margin: 1px;
+  padding: 0 4px;
 }
 
 #i3status .status {
@@ -90,6 +90,7 @@ pre {
 #links {
   text-align: center;
   clear: both;
+  margin-bottom: 32px;
 }
 
 /* theme */

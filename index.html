@@ -83,7 +83,7 @@
     </div>
 
     <div id="configuration">
-      <h2>.config/i3/config</h2>
+      <h2>~/.config/i3/config</h2>
       <div>
 <pre>
 # class                 border  bground text    indicator child_border
@@ -110,7 +110,7 @@ bar {
 }
 bindsym $mod+d exec "dmenu_run -nf '#bbbbbb' -nb '#222222' -sb '#005577' -sf '#eeeeee' -fn 'monospace-10' -p 'dmenu prompt &gt;'"
 </pre>
-      <h2>.config/i3status/config</h2>
+      <h2>~/.config/i3status/config</h2>
 <pre>
 general {
   output_format = "i3bar"
@@ -121,6 +121,12 @@ general {
 }
 </pre>
       </div>
+
+      <div id="toolbar">
+        <button>Import JSON</button>
+        <button>Export JSON</button>
+      </div>
+
     </div>
 
     <div id="links">
@@ -130,12 +136,14 @@ general {
       |
       <a href="https://i3wm.org/i3status/manpage.html" target="_blank">i3status Userguide</a>
       |
+      <a href="https://github.com/tlhunter/i3-i3status-dmenu-configurator" target="_blank">Fork Configurator</a>
+      |
       <a href="https://twitter.com/tlhunter" target="_blank">Made by Thomas Hunter II</a>
     </div>
 
     <div id="i3status">
       <div class="workspaces">
-        <span class="workspace focused">1</span><span class="workspace active">2</span><span class="workspace inactive">3</span><span class="workspace urgent">4</span>
+        <span class="workspace focused">1: focused</span><span class="workspace active">2: active</span><span class="workspace inactive">3: inactive</span><span class="workspace urgent">4: urgent</span><span class="workspace binding">5: binding</span><span class="workspace inactive">6</span><span class="workspace inactive">7</span>
       </div>
       <div class="status">
         <span class="item">438.5 GiB</span>
