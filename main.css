@@ -1,0 +1,138 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+#dmenu {
+  clear: both;
+}
+
+#dmenu .prompt {
+  float: left;
+}
+
+#dmenu .items {
+  float: right;
+}
+
+#dmenu .items .item {
+  display: inline-block;
+}
+
+#colors {
+  clear: both;
+}
+
+input {
+  width: 60px;
+  font-family: monospace;
+  border: 1px solid;
+}
+
+#i3status {
+  height: 22px;
+  line-height: 20px;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+
+#i3status .workspaces {
+  float: left;
+}
+
+#i3status .workspaces .workspace {
+  display: inline-block;
+  border-width: 1px;
+  border-style: solid;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  margin: 1px;
+}
+
+#i3status .status {
+  float: right;
+  padding-right: 4px;
+}
+
+#i3status,
+#windows,
+#dmenu {
+  font-family: monospace;
+  font-size: 12px;
+}
+
+#colors,
+#configuration {
+  width: 48%;
+  display: block;
+}
+
+#colors {
+  float: left;
+}
+#configuration {
+  float: right;
+}
+
+pre {
+  color: white;
+  background: black;
+  padding: 4px;
+  overflow: auto;
+}
+
+#links {
+  text-align: center;
+  clear: both;
+}
+
+/* theme */
+
+#dmenu {
+  height: 20px;
+}
+
+#dmenu .prompt,
+#dmenu .item {
+  height: 20px;
+  line-height: 20px;
+  padding: 0 8px;
+}
+
+#dmenu,
+#dmenu .normal {
+  background-color: #222222;
+  color: #bbbbbb;
+}
+
+#dmenu .selected,
+#dmenu .prompt {
+  background-color: #005577;
+  color: #eeeeee;
+}
+
+#i3status {
+  background: black;
+  color: white;
+}
+
+#i3status .status .item {
+  color: white;
+}
+
+#i3status .status .separator {
+  color: #666666;
+}
+#i3status .status .good {
+  color: #00FF00;
+}
+
+#i3status .status .degraded {
+  color: #FFFF00;
+}
+
+#i3status .status .urgent {
+  color: #FF0000;
+}
