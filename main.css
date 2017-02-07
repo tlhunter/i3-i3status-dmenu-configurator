@@ -3,8 +3,21 @@ body, html {
   padding: 0;
 }
 
+h1 {
+  margin: 60px 0 0 0;
+  clear: both;
+}
+
+#toolbar {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  background-color: pink; /* to be overridden */
+}
+
 #dmenu {
   clear: both;
+  height: 20px;
 }
 
 #dmenu .prompt {
@@ -39,6 +52,7 @@ input.wide {
   position: fixed;
   bottom: 0px;
   width: 100%;
+  background-color: pink; /* to be overridden */
 }
 
 #i3status .workspaces {
@@ -67,6 +81,10 @@ input.wide {
   font-size: 12px;
 }
 
+#windows .window {
+  background-color: white;
+}
+
 #colors,
 #configuration {
   width: 48%;
@@ -93,12 +111,6 @@ pre {
   margin-bottom: 32px;
 }
 
-/* theme */
-
-#dmenu {
-  height: 20px;
-}
-
 #dmenu .prompt,
 #dmenu .item {
   height: 20px;
@@ -106,6 +118,7 @@ pre {
   padding: 0 8px;
 }
 
+/*
 #dmenu,
 #dmenu .normal {
   background-color: #222222;
@@ -141,3 +154,4 @@ pre {
 #i3status .status .urgent {
   color: #FF0000;
 }
+*/

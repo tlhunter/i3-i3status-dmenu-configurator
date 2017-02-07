@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="main.css" type="text/css" media="all" />
   </head>
   <body>
-    <div id="display">
+    <div id="toolbar">
       <div id="dmenu">
         <div class="prompt">dmenu prompt &gt;</div>
         <div class="items">
@@ -22,12 +22,19 @@
       </div>
       <div id="windows">
         <table width="100%">
-          <tr>
+          <tr class='titles'>
             <td class="title focused">focused window</td>
             <td class="title inactive">inactive window</td>
             <td class="title unfocused">unfocused window</td>
             <td class="title urgent">urgent window</td>
             <td class="title placeholder">placeholder window</td>
+          </tr>
+          <tr class='windows'>
+            <td class="window focused">&nbsp;</td>
+            <td class="window inactive">&nbsp;</td>
+            <td class="window unfocused">&nbsp;</td>
+            <td class="window urgent">&nbsp;</td>
+            <td class="window placeholder">&nbsp;</td>
           </tr>
         </table>
       </div>
@@ -37,95 +44,174 @@
 
     <div id="colors">
       <h2>i3 titles</h2>
-      <table>
+      <table id="i3-input">
         <tr>
           <td>item</td>
           <td title="line above and below title">border</td>
-          <td title="background color" >bground</td>
+          <td title="background color">bground</td>
           <td title="color of text">text</td>
           <td title="border color indicating where a new window will open">indicator</td>
           <td title="line around window content">child_border</td>
         </tr>
-        <tr><td>focused</td><td><input id="title-focused-border" class="jscolor" value="4c7899" /></td><td><input class="jscolor" value="285577" /></td><td><input class="jscolor" value="ffffff" /></td><td><input class="jscolor" value="2e9ef4" /></td><td><input class="jscolor" value="285577" /></td></tr>
-        <tr><td>inactive</td><td><input id="title-focused-border" class="jscolor" value="333333" /></td><td><input class="jscolor" value="5f676a" /></td><td><input class="jscolor" value="ffffff" /></td><td><input class="jscolor" value="484e50" /></td><td><input class="jscolor" value="5f676a" /></td></tr>
-        <tr><td>unfocused</td><td><input id="title-focused-border" class="jscolor" value="333333" /></td><td><input class="jscolor" value="222222" /></td><td><input class="jscolor" value="888888" /></td><td><input class="jscolor" value="292d2e" /></td><td><input class="jscolor" value="222222" /></td></tr>
-        <tr><td>urgent</td><td><input id="title-focused-border" class="jscolor" value="2f343a" /></td><td><input class="jscolor" value="900000" /></td><td><input class="jscolor" value="ffffff" /></td><td><input class="jscolor" value="900000" /></td><td><input class="jscolor" value="900000" /></td></tr>
-        <tr><td>placeholder</td><td><input id="title-focused-border" class="jscolor" value="000000" /></td><td><input class="jscolor" value="0c0c0c" /></td><td><input class="jscolor" value="ffffff" /></td><td><input class="jscolor" value="000000" /></td><td><input class="jscolor" value="0c0c0c" /></td></tr>
-        <tr><td title="space around constrained window (e.g. terminals)">window</td><td></td><td><input class="jscolor" value="FFFFFF" /></td></tr>
+        <tr class='focused'>
+          <td>focused</td>
+          <td><input id="title-focused-border" class="border jscolor" value="4c7899" /></td>
+          <td><input class="background jscolor" value="285577" /></td>
+          <td><input class="text jscolor" value="ffffff" /></td>
+          <td><input class="indicator jscolor" value="2e9ef4" /></td>
+          <td><input class="child jscolor" value="285577" /></td>
+        </tr>
+        <tr class='inactive'>
+          <td>inactive</td>
+          <td><input id="title-focused-border" class="border jscolor" value="333333" /></td>
+          <td><input class="background jscolor" value="5f676a" /></td>
+          <td><input class="text jscolor" value="ffffff" /></td>
+          <td><input class="indicator jscolor" value="484e50" /></td>
+          <td><input class="child jscolor" value="5f676a" /></td>
+        </tr>
+        <tr class='unfocused'>
+          <td>unfocused</td>
+          <td><input id="title-focused-border" class="border jscolor" value="333333" /></td>
+          <td><input class="background jscolor" value="222222" /></td>
+          <td><input class="text jscolor" value="888888" /></td>
+          <td><input class="indicator jscolor" value="292d2e" /></td>
+          <td><input class="child jscolor" value="222222" /></td>
+        </tr>
+        <tr class='urgent'>
+          <td>urgent</td>
+          <td><input id="title-focused-border" class="border jscolor" value="2f343a" /></td>
+          <td><input class="background jscolor" value="900000" /></td>
+          <td><input class="text jscolor" value="ffffff" /></td>
+          <td><input class="indicator jscolor" value="900000" /></td>
+          <td><input class="child jscolor" value="900000" /></td>
+        </tr>
+        <tr class='placeholder'>
+          <td>placeholder</td>
+          <td><input id="title-focused-border" class="border jscolor" value="000000" /></td>
+          <td><input class="background jscolor" value="0c0c0c" /></td>
+          <td><input class="text jscolor" value="ffffff" /></td>
+          <td><input class="indicator jscolor" value="000000" /></td>
+          <td><input class="child jscolor" value="0c0c0c" /></td>
+        </tr>
+        <tr class='window'>
+          <td title="space around constrained window (e.g. terminals)">window</td>
+          <td></td>
+          <td><input class="background jscolor" value="FFFFFF" /></td>
+        </tr>
       </table>
 
       <h2>i3status</h2>
-      <table>
-        <tr><td>item</td><td>bground</td><td>text</td><td>separator</td></tr>
-        <tr><td>basic</td><td><input class="jscolor" value="000000" /></td><td><input class="jscolor" value="ffffff" /></td><td><input class="jscolor" value="666666" /></td></tr>
-        <tr><td>good</td><td></td><td><input class="jscolor" value="00FF00" /></td><td></td></tr>
-        <tr><td>degraded</td><td></td><td><input class="jscolor" value="FFFF00" /></td><td></td></tr>
-        <tr><td>bad</td><td></td><td><input class="jscolor" value="FF0000" /></td><td></td></tr>
+      <table id="i3status-input">
+        <tr>
+          <td>item</td>
+          <td>bground</td>
+          <td>text</td>
+          <td>separator</td>
+        </tr>
+        <tr class="basic">
+          <td>basic</td>
+          <td><input class="background jscolor" value="000000" /></td>
+          <td><input class="text jscolor" value="ffffff" /></td>
+          <td><input class="separator jscolor" value="666666" /></td>
+        </tr>
+        <tr class="good">
+          <td>good</td>
+          <td></td>
+          <td><input class="text jscolor" value="00FF00" /></td>
+          <td></td>
+        </tr>
+        <tr class="degraded">
+          <td>degraded</td>
+          <td></td>
+          <td><input class="text jscolor" value="FFFF00" /></td>
+          <td></td>
+        </tr>
+        <tr class="bad">
+          <td>bad</td>
+          <td></td>
+          <td><input class="text jscolor" value="FF0000" /></td>
+          <td></td>
+        </tr>
       </table>
 
       <h2>i3status workspaces</h2>
-      <table>
-        <tr><td>item</td><td>border</td><td>bground</td><td>text</td></tr>
-        <tr><td>focused</td><td><input class="jscolor" value="4c7899" /></td><td><input class="jscolor" value="285577" /></td><td><input class="jscolor" value="ffffff" /></td></tr>
-        <tr><td>active</td><td><input class="jscolor" value="333333" /></td><td><input class="jscolor" value="222222" /></td><td><input class="jscolor" value="ffffff" /></td></tr>
-        <tr><td>inactive</td><td><input class="jscolor" value="333333" /></td><td><input class="jscolor" value="222222" /></td><td><input class="jscolor" value="888888" /></td></tr>
-        <tr><td>urgent</td><td><input class="jscolor" value="2f343a" /></td><td><input class="jscolor" value="900000" /></td><td><input class="jscolor" value="ffffff" /></td></tr>
-        <tr><td>binding</td><td><input class="jscolor" value="2f343a" /></td><td><input class="jscolor" value="900000" /></td><td><input class="jscolor" value="ffffff" /></td></tr>
+      <table id="i3workspaces-input">
+        <tr>
+          <td>item</td>
+          <td>border</td>
+          <td>bground</td>
+          <td>text</td>
+        </tr>
+        <tr class="focused">
+          <td>focused</td>
+          <td><input class="border jscolor" value="4c7899" /></td>
+          <td><input class="background jscolor" value="285577" /></td>
+          <td><input class="text jscolor" value="ffffff" /></td>
+        </tr>
+        <tr class="active">
+          <td>active</td>
+          <td><input class="border jscolor" value="333333" /></td>
+          <td><input class="background jscolor" value="222222" /></td>
+          <td><input class="text jscolor" value="ffffff" /></td>
+        </tr>
+        <tr class="inactive">
+          <td>inactive</td>
+          <td><input class="border jscolor" value="333333" /></td>
+          <td><input class="background jscolor" value="222222" /></td>
+          <td><input class="text jscolor" value="888888" /></td>
+        </tr>
+        <tr class="urgent">
+          <td>urgent</td>
+          <td><input class="border jscolor" value="2f343a" /></td>
+          <td><input class="background jscolor" value="900000" /></td>
+          <td><input class="text jscolor" value="ffffff" /></td>
+        </tr>
+        <tr class="binding">
+          <td>binding</td>
+          <td><input class="border jscolor" value="2f343a" /></td>
+          <td><input class="background jscolor" value="900000" /></td>
+          <td><input class="text jscolor" value="ffffff" /></td>
+        </tr>
       </table>
 
       <h2>dmenu</h2>
-      prompt <input value="dmenu prompt >" class="wide" /> <br />
-      <table>
-        <tr><td>item</td><td>bground</td><td>text</td></tr>
-        <tr><td>normal</td><td><input class="jscolor" value="222222" /></td><td><input class="jscolor" value="bbbbbb" /></td></tr>
-        <tr><td>selected</td><td><input class="jscolor" value="005577" /></td><td><input class="jscolor" value="eeeeee" /></td></tr>
+      <table id="dmenu-input">
+        <tr>
+          <td>item</td>
+          <td>bground</td>
+          <td>text</td>
+        </tr>
+        <tr class="normal">
+          <td>normal</td>
+          <td><input class="background jscolor" value="222222" /></td>
+          <td><input class="foreground jscolor" value="bbbbbb" /></td>
+        </tr>
+        <tr class="selected">
+          <td>selected</td>
+          <td><input class="background jscolor" value="005577" /></td>
+          <td><input class="foreground jscolor" value="eeeeee" /></td>
+        </tr>
       </table>
     </div>
 
     <div id="configuration">
       <h2>~/.config/i3/config</h2>
       <div>
-<pre>
-# class                 border  bground text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-
-client.background       #ffffff
-
-bar {
-  colors {
-    background #000000
-    statusline #ffffff
-    separator #666666
-
-    focused_workspace  #4c7899 #285577 #ffffff
-    active_workspace   #333333 #5f676a #ffffff
-    inactive_workspace #333333 #222222 #888888
-    urgent_workspace   #2f343a #900000 #ffffff
-    binding_mode       #2f343a #900000 #ffffff
-  }
-}
-bindsym $mod+d exec "dmenu_run -nf '#bbbbbb' -nb '#222222' -sb '#005577' -sf '#eeeeee' -fn 'monospace-10' -p 'dmenu prompt &gt;'"
+<pre id="output-i3">
+loading...
 </pre>
       <h2>~/.config/i3status/config</h2>
-<pre>
-general {
-  output_format = "i3bar"
-  colors = true
-  color_good = "#00FF00"
-  color_degraded = "#FFFF00"
-  color_bad = "#FF0000"
-}
+<pre id="output-i3status">
+loading...
 </pre>
       </div>
 
-      <div id="toolbar">
+      <!--
+      <div id="save-load">
         <button>Import JSON</button>
         <button>Export JSON</button>
       </div>
+      -->
 
     </div>
 
@@ -157,6 +243,7 @@ general {
         <span class="item">2017-02-05 22:35:25</span>
       </div>
     </div>
+    <script src="jquery-3.1.1.min.js" type="text/javascript"></script>
     <script src="main.js" type="text/javascript"></script>
     <script src="jscolor.min.js" type="text/javascript"></script>
   </body>
