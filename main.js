@@ -197,7 +197,7 @@ var i3status = `general {
   colors = true
   color_good = "#${colors.i3status.good}"
   color_degraded = "#${colors.i3status.degraded}"
-  color_bad = "##${colors.i3status.bad}"
+  color_bad = "#${colors.i3status.bad}"
 }`;
 
 var i3 = `# class                 border  bground text    indicator child_border
@@ -229,6 +229,9 @@ $code_i3.text(i3);
 $code_i3status.text(i3status);
 
 renderDmenu();
+renderTitles();
+renderStatus();
+renderWorkspaces();
 }
 
 function renderDmenu() {
@@ -246,6 +249,130 @@ function renderDmenu() {
   selected.css({
     color: $input.dmenu.selected.foreground.val(),
     'background-color': $input.dmenu.selected.background.val(),
+  });
+}
+
+function renderTitles() {
+  $output_windows.find('.title.focused').css({
+    'border-top-color': colors.i3.titles.focused.border,
+    'border-bottom-color': colors.i3.titles.focused.border,
+    color: colors.i3.titles.focused.text,
+    'background-color': colors.i3.titles.focused.background,
+  });
+  $output_windows.find('.window.focused').css({
+    'border-left-color': colors.i3.titles.focused.child,
+    'border-right-color': colors.i3.titles.focused.child,
+    'border-bottom-color': colors.i3.titles.focused.indicator
+  });
+
+  $output_windows.find('.title.inactive').css({
+    'border-top-color': colors.i3.titles.inactive.border,
+    'border-bottom-color': colors.i3.titles.inactive.border,
+    color: colors.i3.titles.inactive.text,
+    'background-color': colors.i3.titles.inactive.background,
+  });
+  $output_windows.find('.window.inactive').css({
+    'border-left-color': colors.i3.titles.inactive.child,
+    'border-right-color': colors.i3.titles.inactive.child,
+    'border-bottom-color': colors.i3.titles.inactive.indicator
+  });
+
+  $output_windows.find('.title.unfocused').css({
+    'border-top-color': colors.i3.titles.unfocused.border,
+    'border-bottom-color': colors.i3.titles.unfocused.border,
+    color: colors.i3.titles.unfocused.text,
+    'background-color': colors.i3.titles.unfocused.background,
+  });
+  $output_windows.find('.window.unfocused').css({
+    'border-left-color': colors.i3.titles.unfocused.child,
+    'border-right-color': colors.i3.titles.unfocused.child,
+    'border-bottom-color': colors.i3.titles.unfocused.indicator
+  });
+
+  $output_windows.find('.title.urgent').css({
+    'border-top-color': colors.i3.titles.urgent.border,
+    'border-bottom-color': colors.i3.titles.urgent.border,
+    color: colors.i3.titles.urgent.text,
+    'background-color': colors.i3.titles.urgent.background,
+  });
+  $output_windows.find('.window.urgent').css({
+    'border-left-color': colors.i3.titles.urgent.child,
+    'border-right-color': colors.i3.titles.urgent.child,
+    'border-bottom-color': colors.i3.titles.urgent.indicator
+  });
+
+  $output_windows.find('.title.placeholder').css({
+    'border-top-color': colors.i3.titles.placeholder.border,
+    'border-bottom-color': colors.i3.titles.placeholder.border,
+    color: colors.i3.titles.placeholder.text,
+    'background-color': colors.i3.titles.placeholder.background,
+  });
+  $output_windows.find('.window.placeholder').css({
+    'border-left-color': colors.i3.titles.placeholder.child,
+    'border-right-color': colors.i3.titles.placeholder.child,
+    'border-bottom-color': colors.i3.titles.placeholder.indicator
+  });
+
+  $output_windows.find('.window').css({
+    'background-color': colors.i3.background
+  });
+}
+
+function renderStatus() {
+  $output_i3status.css({
+    'background-color': colors.i3status.background
+  });
+
+  $output_i3status.find('.status').css({
+    color: colors.i3status.statusline
+  });
+
+  $output_i3status.find('.status .separator').css({
+    color: colors.i3status.statusline
+  });
+
+  $output_i3status.find('.status .item.good').css({
+    color: colors.i3status.good
+  });
+
+  $output_i3status.find('.status .item.degraded').css({
+    color: colors.i3status.degraded
+  });
+
+  $output_i3status.find('.status .item.bad').css({
+    color: colors.i3status.bad
+  });
+}
+
+function renderWorkspaces() {
+  $output_i3status.find('.workspaces .focused').css({
+    'border-color': colors.i3status.workspace.focused.border,
+    'background-color': colors.i3status.workspace.focused.background,
+    color: colors.i3status.workspace.focused.text
+  });
+
+  $output_i3status.find('.workspaces .active').css({
+    'border-color': colors.i3status.workspace.active.border,
+    'background-color': colors.i3status.workspace.active.background,
+    color: colors.i3status.workspace.active.text
+  });
+
+  $output_i3status.find('.workspaces .inactive').css({
+    'border-color': colors.i3status.workspace.inactive.border,
+    'background-color': colors.i3status.workspace.inactive.background,
+    color: colors.i3status.workspace.inactive.text
+  });
+
+  $output_i3status.find('.workspaces .urgent').css({
+    'border-color': colors.i3status.workspace.urgent.border,
+    'background-color': colors.i3status.workspace.urgent.background,
+    color: colors.i3status.workspace.urgent.text
+  });
+
+  $output_i3status.find('.workspaces .binding').css({
+    'border-color': colors.i3status.workspace.binding.border,
+    'background-color': colors.i3status.workspace.binding.background,
+    color: colors.i3status.workspace.binding.text
   });
 }
 

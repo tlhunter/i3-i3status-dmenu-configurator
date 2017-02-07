@@ -81,8 +81,16 @@ input.wide {
   font-size: 12px;
 }
 
+#windows .title {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  padding: 2px 0;
+}
+
 #windows .window {
-  background-color: white;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
 }
 
 #colors,
