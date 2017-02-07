@@ -223,7 +223,7 @@ bar {
   }
 }
 
-bindsym $mod+d exec "dmenu_run -nf '#${colors.dmenu.normal.foreground}' -nb '#${colors.dmenu.normal.background}' -sb '#00557${colors.dmenu.selected.background}' -sf '#${colors.dmenu.selected.foreground}' -fn 'monospace-10' -p 'dmenu prompt &gt;'"`;
+bindsym $mod+d exec "dmenu_run -nf '#${colors.dmenu.normal.foreground}' -nb '#${colors.dmenu.normal.background}' -sb '#${colors.dmenu.selected.background}' -sf '#${colors.dmenu.selected.foreground}' -fn 'monospace-10' -p 'dmenu prompt &gt;'"`;
 
 $code_i3.text(i3);
 $code_i3status.text(i3status);
